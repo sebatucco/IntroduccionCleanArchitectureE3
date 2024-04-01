@@ -10,6 +10,9 @@ https://refactoring.guru/es/design-patterns/classification
 
 ![image](https://github.com/sebatucco/IntroduccionCleanArchitectureE3/assets/4566043/33991b8f-fe34-421f-b3ee-1f31e0bc3930)
 
+![image](https://github.com/sebatucco/IntroduccionCleanArchitectureE3/assets/4566043/08c1a038-aa79-4f54-97df-a952fc73ce24)
+
+
 Fuente Prox Ejemplo
 
 https://www.youtube.com/watch?v=hCG38mYnrMc&ab_channel=FernandoVentura
