@@ -8,8 +8,7 @@ Ptrones de Diseño:
 
 https://refactoring.guru/es/design-patterns/classification
 
-![image](https://github.com/sebatucco/IntroduccionCleanArchitecture/assets/4566043/bd475b5f-b293-4a30-905a-5fd04c3f58d4)
-
+![image](https://github.com/sebatucco/IntroduccionCleanArchitectureE3/assets/4566043/33991b8f-fe34-421f-b3ee-1f31e0bc3930)
 
 Fuente Prox Ejemplo
 
