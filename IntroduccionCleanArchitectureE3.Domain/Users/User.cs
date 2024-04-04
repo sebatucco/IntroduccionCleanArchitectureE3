@@ -1,4 +1,5 @@
 ﻿using IntroduccionCleanArchitectureE3.Domain.Abstractions;
+using IntroduccionCleanArchitectureE3.Domain.Users.Events;
 using IntroduccionCleanArchitectureE3.Domain.Users.ObjectValues;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,11 @@ namespace IntroduccionCleanArchitectureE3.Domain.Users
         public Apellido? Apellido { get; private set; }
         public Email? Email { get; private set; }
 
-        public static User Create( Nombre nombre, Apellido apellido, Email email)
+        public static User Create(Nombre nombre, Apellido apellido, Email email)
         {
-            return new User(Guid.NewGuid(), nombre, apellido, email);
+            var user = new User(Guid.NewGuid(), nombre, apellido, email);
+            user.RaiseDomainEvent(new UserCreateDomainEvent(user.Id)); // disparador de evento
+            return user;
         }
     }
 }
