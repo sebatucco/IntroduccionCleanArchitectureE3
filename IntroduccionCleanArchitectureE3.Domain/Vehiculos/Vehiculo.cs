@@ -38,7 +38,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Vehiculos
         public Moneda? Precio { get; private set; }
         public Moneda?  Mantenimiento { get; private set; }
         public DateTime? FechaUltimoAlquiler { get; set; }
-        public List<Accesorio> Accesorios { get; private set; } = new List<Accesorio>();
+        public List<Accesorio> Accesorios { get; private set; } = new ();
 
     }
 }

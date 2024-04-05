@@ -62,6 +62,16 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
 
         public DateTime? FechaCancelacion { get; private set; }
 
+        public static Alquiler Reservar(
+          Guid vehiculoId,
+          Guid userId,
+          DateRange duracion,
+          DateTime fechaCreacion
+        )
+        { 
+            
+        }
+
 
     }
 }
