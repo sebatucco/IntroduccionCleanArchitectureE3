@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IntroduccionCleanArchitectureE3.Domain.Vehiculos.ObjectValues
+namespace IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal
 {
     public record TipoMoneda
     {
@@ -26,5 +26,5 @@ namespace IntroduccionCleanArchitectureE3.Domain.Vehiculos.ObjectValues
         {
             return All.FirstOrDefault(x => x.Codigo == codigo) ?? throw new ApplicationException("El tipo de moneda invalido");
         }
-    } 
+    }
 }

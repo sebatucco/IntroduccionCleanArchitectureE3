@@ -1,4 +1,5 @@
 ﻿using IntroduccionCleanArchitectureE3.Domain.Abstractions;
+using IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos.Enums;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos.ObjectValues;
 using System;

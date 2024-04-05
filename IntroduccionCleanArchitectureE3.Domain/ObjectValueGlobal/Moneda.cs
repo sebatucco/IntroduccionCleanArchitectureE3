@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IntroduccionCleanArchitectureE3.Domain.Vehiculos.ObjectValues
+namespace IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal
 {
     public record Moneda(decimal monto, TipoMoneda tipoMoneda)
     {
@@ -14,7 +14,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Vehiculos.ObjectValues
             {
                 throw new InvalidOperationException("El tipo de moneda debe ser el mismo");
             }
-            return new Moneda((primero.monto + segundo.monto), primero.tipoMoneda);
+            return new Moneda(primero.monto + segundo.monto, primero.tipoMoneda);
         }
 
         public static Moneda Zero() => new(0, TipoMoneda.None);
