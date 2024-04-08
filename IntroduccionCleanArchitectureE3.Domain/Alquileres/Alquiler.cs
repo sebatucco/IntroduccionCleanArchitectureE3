@@ -66,10 +66,22 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
           Guid vehiculoId,
           Guid userId,
           DateRange duracion,
-          DateTime fechaCreacion
+          DateTime fechaCreacion,
+          PrecioDetalle precioDetalle
         )
-        { 
-            
+        {
+            var alquiler = new Alquiler(
+                Guid.NewGuid(),
+                vehiculoId,
+                userId,
+                duracion,
+                precioDetalle.PrecioPeriodo,
+                precioDetalle.Mantenimiento,
+                precioDetalle.Accesorios,
+                precioDetalle.PrecioTotal,
+                AlquilerStatus.Reservado,
+                fechaCreacion
+                );
         }
 
 

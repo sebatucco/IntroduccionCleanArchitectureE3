@@ -52,6 +52,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler
             }
 
             precioTotal += accesorioCharges;
+            return new PrecioDetalle(precioPeriodo, vehiculo.Mantenimiento, accesorioCharges, precioTotal);
 
         }
     }
