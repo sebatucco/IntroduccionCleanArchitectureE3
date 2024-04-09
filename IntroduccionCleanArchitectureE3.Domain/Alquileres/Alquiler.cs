@@ -1,7 +1,10 @@
 ﻿using IntroduccionCleanArchitectureE3.Domain.Abstractions;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.Enums;
+using IntroduccionCleanArchitectureE3.Domain.Alquileres.Event;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.ObjectValues;
+using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
 using IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal;
+using IntroduccionCleanArchitectureE3.Domain.Vehiculos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,16 +66,21 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
         public DateTime? FechaCancelacion { get; private set; }
 
         public static Alquiler Reservar(
-          Guid vehiculoId,
+          Vehiculo vehiculo,
+          //Guid vehiculoId,
           Guid userId,
           DateRange duracion,
           DateTime fechaCreacion,
-          PrecioDetalle precioDetalle
+          //PrecioDetalle precioDetalle
+          PrecioService precioService
         )
         {
+            var precioDetalle = precioService.CalcularPrecio(vehiculo, duracion
+                
+                );
             var alquiler = new Alquiler(
                 Guid.NewGuid(),
-                vehiculoId,
+                vehiculo.Id,
                 userId,
                 duracion,
                 precioDetalle.PrecioPeriodo,
@@ -82,8 +90,18 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
                 AlquilerStatus.Reservado,
                 fechaCreacion
                 );
+            alquiler.RaiseDomainEvent(new AlquilerReservadoDomainEvent(alquiler.Id!));
+            vehiculo.FechaUltimoAlquiler = fechaCreacion;
+            return alquiler;
         }
 
+        public Result Confirmar(DateTime utcNow)
+        {
+            if (Status != AlquilerStatus.Reservado)
+            { 
+                // dispara un mensaje de error 
+            }
+        }
 
     }
 }
