@@ -1,5 +1,5 @@
 ﻿using IntroduccionCleanArchitectureE3.Domain.Alquileres.ObjectValues;
-using IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal;
+using IntroduccionCleanArchitectureE3.Domain.ObjectValueShared;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos.Enums;
 using System;

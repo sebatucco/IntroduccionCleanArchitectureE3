@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal
+namespace IntroduccionCleanArchitectureE3.Domain.ObjectValueShared
 {
     public record Moneda(decimal Monto, TipoMoneda TipoMoneda)
     {

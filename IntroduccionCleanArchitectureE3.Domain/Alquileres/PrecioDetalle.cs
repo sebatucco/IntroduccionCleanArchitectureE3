@@ -1,4 +1,4 @@
-﻿using IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal;
+﻿using IntroduccionCleanArchitectureE3.Domain.ObjectValueShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;

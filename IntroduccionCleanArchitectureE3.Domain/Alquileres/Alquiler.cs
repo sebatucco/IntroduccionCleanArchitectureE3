@@ -3,7 +3,7 @@ using IntroduccionCleanArchitectureE3.Domain.Alquileres.Enums;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.Event;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.ObjectValues;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
-using IntroduccionCleanArchitectureE3.Domain.ObjectValueGlobal;
+using IntroduccionCleanArchitectureE3.Domain.ObjectValueShared;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos;
 using System;
 using System.Collections.Generic;
