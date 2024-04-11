@@ -98,12 +98,71 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
         public Result Confirmar(DateTime utcNow)
         {
             if (Status != AlquilerStatus.Reservado)
-            { 
-                // dispara un mensaje de error 
+            {
+                return Result.Failure(AlquilerErrors.NotReserved);
             }
+
+            Status = AlquilerStatus.Confirmado;
+            FechaConfirmacion = utcNow;
+
+            RaiseDomainEvent(new AlquilerConfirmadoDomainEvent(Id));
 
             return Result.Success();
         }
 
+        public Result Rechazar(DateTime utcNow)
+        {
+            if (Status != AlquilerStatus.Reservado)
+            {
+                return Result.Failure(AlquilerErrors.NotReserved);
+            }
+
+            Status = AlquilerStatus.Rechazado;
+            FechaDenegacion = utcNow;
+
+            RaiseDomainEvent(new AlquilerRechazadoDomainEvent(Id));
+
+            return Result.Success();
+
+        }
+
+        public Result Cancelar(DateTime utcNow)
+        {
+            if (Status != AlquilerStatus.Confirmado)
+            {
+                return Result.Failure(AlquilerErrors.NotConfirmed);
+            }
+
+            var currenDate = DateOnly.FromDateTime(utcNow);
+
+            if (currenDate > DuracionAlquiler.Inicio)
+            {
+                return Result.Failure(AlquilerErrors.AlReadyStarted);
+            }
+
+            Status = AlquilerStatus.Cancelado;
+            FechaCancelacion = utcNow;
+
+            RaiseDomainEvent(new AlquilerCanceladoDomainEvent(Id));
+
+            return Result.Success();
+
+        }
+
+        public Result Completar(DateTime utcNow)
+        {
+            if (Status != AlquilerStatus.Confirmado)
+            {
+                return Result.Failure(AlquilerErrors.NotConfirmed);
+            }
+
+            Status = AlquilerStatus.Completado;
+            FechaCompletado = utcNow;
+
+            RaiseDomainEvent(new AlquilerCompletadoDomainEvent(Id));
+
+            return Result.Success();
+
+        }
     }
 }
