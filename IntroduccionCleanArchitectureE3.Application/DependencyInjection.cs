@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace IntroduccionCleanArchitectureE3.Application
             {
                 configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
             });
-
+            services.AddTransient<PrecioService>();
 
             return services;
         }
