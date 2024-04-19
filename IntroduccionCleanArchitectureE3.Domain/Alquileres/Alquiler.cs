@@ -75,9 +75,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
           PrecioService precioService
         )
         {
-            var precioDetalle = precioService.CalcularPrecio(vehiculo, duracion
-                
-                );
+            var precioDetalle = precioService.CalcularPrecio(vehiculo, duracion);
             var alquiler = new Alquiler(
                 Guid.NewGuid(),
                 vehiculo.Id,
