@@ -1,4 +1,5 @@
-﻿using IntroduccionCleanArchitectureE3.Application.Abstractions.Messaging;
+﻿using IntroduccionCleanArchitectureE3.Application.Abstractions.Clock;
+using IntroduccionCleanArchitectureE3.Application.Abstractions.Messaging;
 using IntroduccionCleanArchitectureE3.Domain.Abstractions;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.ObjectValues;
@@ -21,14 +22,16 @@ namespace IntroduccionCleanArchitectureE3.Application.Alquileres.ReservarAlquile
         private readonly IAlquilerRepository _alquilerRepository;
         private readonly PrecioService _precioService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IDateTimeeProvider _dateTimeeProvider;
 
-        public ReservarAlquilerCommandHandler(IUserRepository userRepository, IVehiculoRepository vehiculoRepository, IAlquilerRepository alquilerRepository, PrecioService precioService, IUnitOfWork unitOfWork)
+        public ReservarAlquilerCommandHandler(IUserRepository userRepository, IVehiculoRepository vehiculoRepository, IAlquilerRepository alquilerRepository, PrecioService precioService, IUnitOfWork unitOfWork, IDateTimeeProvider dateTimeeProvider)
         {
             _userRepository = userRepository;
             _vehiculoRepository = vehiculoRepository;
             _alquilerRepository = alquilerRepository;
             _precioService = precioService;
             _unitOfWork = unitOfWork;
+            _dateTimeeProvider = dateTimeeProvider;
         }
 
         public async Task<Result<Guid>> Handle(ReservarAlquilerCommand request, CancellationToken cancellationToken)
@@ -49,7 +52,7 @@ namespace IntroduccionCleanArchitectureE3.Application.Alquileres.ReservarAlquile
                 return Result.Failure<Guid>(AlquilerErrors.OverLap);
             }
 
-            var alquiler = Alquiler.Reservar(vehiculo, user.Id, duracion, DateTime.UtcNow, _precioService);
+            var alquiler = Alquiler.Reservar(vehiculo, user.Id, duracion, _dateTimeeProvider.CurrentTimeGet, _precioService);
             _alquilerRepository.Add(alquiler);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return alquiler.Id;

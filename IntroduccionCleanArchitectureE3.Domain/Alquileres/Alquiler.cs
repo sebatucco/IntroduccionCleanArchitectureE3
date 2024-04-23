@@ -88,6 +88,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
                 AlquilerStatus.Reservado,
                 fechaCreacion
                 );
+            //publica un evento a la espera que otro componente consuma el evento
             alquiler.RaiseDomainEvent(new AlquilerReservadoDomainEvent(alquiler.Id!));
             vehiculo.FechaUltimoAlquiler = fechaCreacion;
             return alquiler;
