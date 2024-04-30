@@ -14,6 +14,7 @@ https://refactoring.guru/es/design-patterns/classification
 
 
 Fuente Prox Ejemplo
+https://www.youtube.com/watch?v=1tTbsCY6r0I&ab_channel=hdeleon.net
 
 https://www.youtube.com/watch?v=NbxRLpdbRbE&list=PLOnQtvVd3KITZzHS8Va1UuhNU85qSWNmn&ab_channel=FernandoVentura
 
