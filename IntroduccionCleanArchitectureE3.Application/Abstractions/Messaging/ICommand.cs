@@ -12,7 +12,11 @@ namespace IntroduccionCleanArchitectureE3.Application.Abstractions.Messaging
     {
     }
 
-    public interface ICommand<TResponse> : IRequest<Result<TResponse>>, IBaseCommand { }
+    public interface ICommand<TResponse> : IRequest<Result<TResponse>>, IBaseCommand 
+    { 
+    }
 
-    public interface IBaseCommand { }
+    public interface IBaseCommand 
+    { 
+    }
 }

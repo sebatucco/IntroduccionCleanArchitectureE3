@@ -1,4 +1,5 @@
-﻿using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
+﻿using IntroduccionCleanArchitectureE3.Application.Abstractions.Behaviors;
+using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace IntroduccionCleanArchitectureE3.Application
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+                configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+                configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
             services.AddTransient<PrecioService>();
 

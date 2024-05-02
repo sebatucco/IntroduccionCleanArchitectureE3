@@ -22,9 +22,12 @@ namespace IntroduccionCleanArchitectureE3.Domain.ObjectValueShared
           Eur
         };
 
-        public static TipoMoneda FromCodigo(string codigo)
-        {
-            return All.FirstOrDefault(x => x.Codigo == codigo) ?? throw new ApplicationException("El tipo de moneda invalido");
-        }
+        //public static TipoMoneda FromCodigo(string codigo)
+        //{
+        //    return All.FirstOrDefault(x => x.Codigo == codigo) ?? throw new ApplicationException("El tipo de moneda invalido");
+        //}
+
+        public static TipoMoneda FromCodigo(string codigo) => All.FirstOrDefault(x => x.Codigo == codigo) ?? throw new ApplicationException("El tipo de moneda invalido");
+        
     }
 }
