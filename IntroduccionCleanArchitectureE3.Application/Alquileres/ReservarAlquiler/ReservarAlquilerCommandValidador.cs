@@ -11,7 +11,9 @@ namespace IntroduccionCleanArchitectureE3.Application.Alquileres.ReservarAlquile
     {
         public ReservarAlquilerCommandValidador()
         {
-            RuleFor(c => c.UserId).NotEmpty(); 
+            RuleFor(c => c.UserId).NotEmpty();
+            RuleFor(c => c.VehiculoId).NotEmpty();
+            RuleFor(c => c.FechaInicio).LessThan(c => c.FechaFin);
         }
     }
 }

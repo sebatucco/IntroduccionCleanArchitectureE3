@@ -1,4 +1,5 @@
-﻿using IntroduccionCleanArchitectureE3.Application.Abstractions.Behaviors;
+﻿using FluentValidation;
+using IntroduccionCleanArchitectureE3.Application.Abstractions.Behaviors;
 using IntroduccionCleanArchitectureE3.Domain.Alquileres.ServicesAlquiler;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -19,6 +20,8 @@ namespace IntroduccionCleanArchitectureE3.Application
                 configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
                 configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
+
+            services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
             services.AddTransient<PrecioService>();
 
             return services;
