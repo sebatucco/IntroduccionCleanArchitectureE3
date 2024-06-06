@@ -52,7 +52,7 @@ namespace IntroduccionCleanArchitectureE3.Application.Alquileres.ReservarAlquile
                 return Result.Failure<Guid>(AlquilerErrors.OverLap);
             }
 
-            var alquiler = Alquiler.Reservar(vehiculo, user.Id, duracion, _dateTimeeProvider.CurrentTimeGet, _precioService);
+            var alquiler = Domain.Alquileres.User.Reservar(vehiculo, user.Id, duracion, _dateTimeeProvider.CurrentTimeGet, _precioService);
             _alquilerRepository.Add(alquiler);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
             return alquiler.Id;

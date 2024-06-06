@@ -36,7 +36,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Reviews
             FechaCreacion = fechaCreacion;      
         }
 
-        public static Result<Review> Create(Alquiler alquiler, Rating rating, Comentario comentario, DateTime fechacreacion)
+        public static Result<Review> Create(User alquiler, Rating rating, Comentario comentario, DateTime fechacreacion)
         {
             if (alquiler.Status != AlquilerStatus.Completado)
             {

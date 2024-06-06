@@ -12,10 +12,10 @@ namespace IntroduccionCleanArchitectureE3.Domain.Interfaces
     public interface IAlquilerRepository
     {
 
-        Task<Alquiler> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<User> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
         Task<bool> IsOverlappingAsync(Vehiculo vehiculo, DateRange duracion, CancellationToken cancellationToken = default);
 
-        void Add(Alquiler alquiler);
+        void Add(User alquiler);
     }
 }

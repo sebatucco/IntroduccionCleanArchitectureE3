@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
 {
-    public sealed class Alquiler : Entity
+    public sealed class User : Entity
     {
-        private Alquiler(
+        private User(
             Guid id,
             Guid vehiculoId,
             Guid userId,
@@ -65,7 +65,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
 
         public DateTime? FechaCancelacion { get; private set; }
 
-        public static Alquiler Reservar(
+        public static User Reservar(
           Vehiculo vehiculo,
           //Guid vehiculoId,
           Guid userId,
@@ -76,7 +76,7 @@ namespace IntroduccionCleanArchitectureE3.Domain.Alquileres
         )
         {
             var precioDetalle = precioService.CalcularPrecio(vehiculo, duracion);
-            var alquiler = new Alquiler(
+            var alquiler = new User(
                 Guid.NewGuid(),
                 vehiculo.Id,
                 userId,
