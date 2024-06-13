@@ -1,5 +1,6 @@
 ﻿using IntroduccionCleanArchitectureE3.Domain.Alquileres;
 using IntroduccionCleanArchitectureE3.Domain.Reviews;
+using IntroduccionCleanArchitectureE3.Domain.Users;
 using IntroduccionCleanArchitectureE3.Domain.Vehiculos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

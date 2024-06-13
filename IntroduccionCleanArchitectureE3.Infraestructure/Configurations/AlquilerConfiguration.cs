@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace IntroduccionCleanArchitectureE3.Infraestructure.Configurations
 {
-    internal sealed class AlquilerConfiguration : IEntityTypeConfiguration<Domain.Alquileres.User>
+    internal sealed class AlquilerConfiguration : IEntityTypeConfiguration<Alquiler>
     {
-        public void Configure(EntityTypeBuilder<Domain.Alquileres.User> builder)
+        public void Configure(EntityTypeBuilder<Alquiler> builder)
         {
             builder.ToTable("lquileres");
             builder.HasKey(alquiler => alquiler.Id);
